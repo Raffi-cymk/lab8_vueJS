@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VueJS API Artikel</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <h1>Daftar Artikel VueJS</h1>
+
+    <div class="form-box">
+
+        <input
+        type="text"
+        v-model="form.judul"
+        placeholder="Masukkan judul">
+
+        <textarea
+        v-model="form.isi"
+        placeholder="Masukkan isi artikel"></textarea>
+
+        <button @click="simpanData">
+            Simpan Artikel
+        </button>
+
+    </div>
+
+    <table border="1" width="100%" cellpadding="10">
+
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Judul</th>
+                <th>Isi</th>
+                <th>Aksi</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr v-for="row in artikel" :key="row.id">
+
+                <td>{{ row.id }}</td>
+
+                <td>{{ row.judul }}</td>
+
+                <td>{{ row.isi }}</td>
+
+                <td>
+
+                    <button
+                    class="hapus"
+                    @click="hapusData(row.id)">
+                        Hapus
+                    </button>
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script src="assets/js/app.js"></script>
+
+</body>
+</html>
