@@ -169,3 +169,99 @@ Yakin ingin menghapus artikel ini?
 ```
 
 Jika pengguna memilih OK, artikel langsung dihapus dari database melalui REST API menggunakan method DELETE.
+
+---
+
+# 📚 Praktikum 12 - Vue Router (Single Page Application)
+
+## 🎯 Tujuan
+
+Membuat aplikasi **Single Page Application (SPA)** menggunakan **Vue.js** dan **Vue Router**, sehingga perpindahan halaman dapat dilakukan tanpa me-reload browser.
+
+---
+
+## 🛠️ Struktur File
+
+```text
+LAB8_VUEJS
+│
+├── assets
+│   ├── css
+│   │   └── style.css
+│   │
+│   └── js
+│       ├── components
+│       │   ├── Home.js
+│       │   ├── Artikel.js
+│       │   └── About.js
+│       │
+│       └── app.js
+│
+└── index.html
+```
+
+---
+
+## 💻 Cuplikan Kode
+
+### Home.js
+
+```javascript
+const Home = {
+    template: `
+        <div>
+            <h2>Beranda</h2>
+            <p>Selamat datang di aplikasi VueJS.</p>
+        </div>
+    `
+};
+```
+
+### app.js
+
+```javascript
+const routes = [
+    { path: '/', component: Home },
+    { path: '/artikel', component: Artikel },
+    { path: '/about', component: About }
+];
+
+const router = VueRouter.createRouter({
+    history: VueRouter.createWebHashHistory(),
+    routes
+});
+
+const app = Vue.createApp({});
+app.use(router);
+app.mount('#app');
+```
+
+---
+
+## 📸 Hasil Program
+
+### 🏠 Halaman Beranda
+<img width="1366" height="768" alt="Screenshot (294)" src="https://github.com/user-attachments/assets/e92459c0-4f16-41d8-a275-22270441dee2" />
+
+Menampilkan halaman utama aplikasi beserta pesan selamat datang.
+
+### 📰 Halaman Kelola Artikel
+<img width="1366" height="768" alt="Screenshot (294)" src="https://github.com/user-attachments/assets/25f921b4-5077-4024-96b3-aafa330f6891" />
+
+Menampilkan halaman untuk pengelolaan data artikel.
+
+### 👤 Halaman About
+<img width="1366" height="768" alt="Screenshot (296)" src="https://github.com/user-attachments/assets/82eb4953-e6a2-484c-827e-ba79e80f1366" />
+
+Menampilkan informasi identitas mahasiswa.
+
+---
+
+## ✨ Penjelasan Singkat
+
+* 🚀 Menggunakan **Vue.js 3** sebagai framework frontend.
+* 🔗 Menggunakan **Vue Router** untuk navigasi SPA.
+* 🏠 Route `/` menampilkan halaman Beranda.
+* 📰 Route `/artikel` menampilkan halaman Kelola Artikel.
+* 👤 Route `/about` menampilkan halaman About.
+* ⚡ Perpindahan halaman berlangsung tanpa refresh browser karena menggunakan konsep Single Page Application (SPA).
