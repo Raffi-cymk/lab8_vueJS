@@ -265,3 +265,62 @@ Menampilkan informasi identitas mahasiswa.
 * 📰 Route `/artikel` menampilkan halaman Kelola Artikel.
 * 👤 Route `/about` menampilkan halaman About.
 * ⚡ Perpindahan halaman berlangsung tanpa refresh browser karena menggunakan konsep Single Page Application (SPA).
+
+---
+
+# Praktikum 13 - Implementasi Login dan Authentication pada SPA VueJS
+
+## Deskripsi
+
+Pada praktikum ini dilakukan pengembangan aplikasi Single Page Application (SPA) berbasis VueJS dan CodeIgniter 4 dengan menambahkan fitur autentikasi pengguna. Fitur yang ditambahkan meliputi halaman login, penyimpanan status login menggunakan Local Storage, pembatasan akses halaman menggunakan Navigation Guard, serta fitur logout.
+
+## Hasil Praktikum
+
+### 1. Struktur Tabel User
+
+Pada tahap awal dibuat tabel `user` pada database `lab_ci4` yang digunakan untuk menyimpan data pengguna aplikasi. Tabel ini terdiri dari beberapa field, yaitu:
+
+* `id` : sebagai primary key dengan tipe data INT dan auto increment.
+* `username` : menyimpan nama pengguna dengan tipe data VARCHAR.
+* `email` : menyimpan alamat email pengguna dengan tipe data VARCHAR.
+* `password` : menyimpan password pengguna yang telah dienkripsi menggunakan MD5.
+
+**Screenshot Struktur Tabel User**
+
+<img width="1195" height="297" alt="Screenshot (298)" src="https://github.com/user-attachments/assets/bbbbb3f7-bc8d-4346-b1eb-3c5e8ae66608" />
+
+### 2. Data User pada Database
+
+Setelah tabel berhasil dibuat, ditambahkan data pengguna yang akan digunakan untuk proses login aplikasi. Data tersebut terdiri dari username, email, dan password yang tersimpan di dalam tabel user.
+
+**Screenshot Data User**
+
+<img width="982" height="188" alt="Screenshot (299)" src="https://github.com/user-attachments/assets/53ba167a-ae59-478b-952c-b3da7c263415" />
+
+### 3. Halaman Login Aplikasi
+
+Aplikasi SPA kemudian dikembangkan dengan menambahkan halaman login. Pengguna dapat memasukkan username dan password untuk mengakses halaman yang telah diproteksi oleh sistem autentikasi.
+
+**Screenshot Halaman Login**
+
+<img width="1159" height="481" alt="Screenshot (329)" src="https://github.com/user-attachments/assets/c7947437-7c80-4578-9d12-e5a7891ac3b7" />
+
+### 4. Fitur Logout
+
+Setelah berhasil login, pengguna dapat keluar dari sistem menggunakan tombol Logout. Sistem akan menampilkan konfirmasi sebelum proses logout dijalankan.
+
+**Screenshot Konfirmasi Logout**
+
+<img width="1013" height="415" alt="Screenshot (330)" src="https://github.com/user-attachments/assets/b65de251-7952-4326-9a7f-efb8f05c424a" />
+
+### 5. Proteksi Halaman Menggunakan Navigation Guard
+
+Halaman tertentu hanya dapat diakses oleh pengguna yang telah login. Apabila pengguna mencoba mengakses halaman yang diproteksi tanpa autentikasi, sistem akan menampilkan pesan penolakan akses dan mengarahkan pengguna ke halaman login.
+
+**Screenshot Akses Ditolak**
+
+<img width="1037" height="283" alt="Screenshot (331)" src="https://github.com/user-attachments/assets/4a2cd76f-b3e4-4381-9c3b-0d76bd2dea2f" />
+
+## Kesimpulan
+
+Praktikum 13 berhasil mengimplementasikan sistem autentikasi pada aplikasi SPA menggunakan VueJS dan CodeIgniter 4. Fitur login, logout, penyimpanan status login menggunakan Local Storage, serta Navigation Guard telah berjalan dengan baik sehingga akses ke halaman tertentu dapat dibatasi sesuai status autentikasi pengguna.
