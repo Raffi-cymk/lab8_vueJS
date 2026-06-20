@@ -324,3 +324,43 @@ Halaman tertentu hanya dapat diakses oleh pengguna yang telah login. Apabila pen
 ## Kesimpulan
 
 Praktikum 13 berhasil mengimplementasikan sistem autentikasi pada aplikasi SPA menggunakan VueJS dan CodeIgniter 4. Fitur login, logout, penyimpanan status login menggunakan Local Storage, serta Navigation Guard telah berjalan dengan baik sehingga akses ke halaman tertentu dapat dibatasi sesuai status autentikasi pengguna.
+
+
+---
+
+# Praktikum 14 - Implementasi Token Authentication dan Axios Interceptors
+
+## Deskripsi
+
+Pada praktikum ini dilakukan pengembangan sistem keamanan pada aplikasi Single Page Application (SPA) berbasis VueJS dan CodeIgniter 4. Pengamanan dilakukan dengan menerapkan Token Authentication menggunakan Filter pada CodeIgniter 4 serta Axios Interceptors pada VueJS untuk mengirim token secara otomatis pada setiap request ke server.
+
+## Hasil Praktikum
+
+### 1. Implementasi Auth Filter
+
+Pada sisi backend, dibuat `AuthFilter` yang berfungsi untuk memeriksa keberadaan token autentikasi pada setiap request yang mengakses endpoint yang diproteksi. Apabila token tidak ditemukan, sistem akan menolak akses dan mengembalikan status **401 Unauthorized**.
+
+**Screenshot Pengujian Auth Filter**
+<img width="679" height="320" alt="Screenshot (333)" src="https://github.com/user-attachments/assets/b0cd74fd-7669-46e0-a074-57eb92e1589c" />
+
+
+### 2. Implementasi Axios Interceptors
+
+Pada sisi frontend VueJS, ditambahkan Axios Interceptors untuk mengambil token yang tersimpan pada Local Storage dan mengirimkannya secara otomatis melalui header Authorization pada setiap request ke backend. Dengan mekanisme ini, proses autentikasi dapat dilakukan tanpa menambahkan token secara manual pada setiap pemanggilan API.
+
+**Screenshot Halaman Login**
+<img width="1075" height="484" alt="Screenshot (334)" src="https://github.com/user-attachments/assets/348cde86-3603-48b2-b758-8a4d09c2deb7" />
+
+
+### 3. Proteksi Halaman Menggunakan Authentication
+
+Halaman yang memerlukan autentikasi hanya dapat diakses oleh pengguna yang telah berhasil login. Apabila pengguna mencoba mengakses halaman yang diproteksi tanpa autentikasi, sistem akan menampilkan pesan penolakan akses dan mengarahkan pengguna ke halaman login.
+
+**Screenshot Proteksi Halaman Artikel**
+<img width="652" height="272" alt="Screenshot (335)" src="https://github.com/user-attachments/assets/da415cb4-9e88-48eb-91e4-5f08849841c8" />
+
+---
+
+## Kesimpulan
+
+Praktikum 14 berhasil mengimplementasikan sistem keamanan tambahan pada aplikasi SPA menggunakan Token Authentication dan Axios Interceptors. Dengan adanya Auth Filter pada backend serta pengiriman token otomatis dari frontend, akses terhadap endpoint dan halaman tertentu dapat dibatasi sehingga keamanan aplikasi menjadi lebih baik dibandingkan implementasi sebelumnya.
